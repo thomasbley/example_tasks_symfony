@@ -1,5 +1,5 @@
-PHP Example Tasks REST API
-------------------------------------
+PHP / Symfony example Tasks REST API
+---------------------------------------
 
 As a registered user, I want to see a list of open tasks for my day, so that I can do them one by one and get notified
 on completion.
