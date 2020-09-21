@@ -2,10 +2,10 @@
 
 namespace App\Command;
 
+use App\Repository\MigrationsRepository;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use App\Repository\MigrationsRepository;
 
 class MigrationsCommand extends Command
 {
@@ -20,14 +20,14 @@ class MigrationsCommand extends Command
         parent::__construct();
     }
 
-    protected function configure()
+    protected function configure(): void
     {
         $this->setDescription('Apply database migrations');
 
         $this->setHelp('This command applies all database migrations');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $path = __DIR__ . '/../../migrations/';
 

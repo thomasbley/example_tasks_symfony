@@ -2,6 +2,8 @@
 
 namespace Symfony\Component\DependencyInjection\Loader\Configurator;
 
+use App\Command\MigrationsCommand;
+use App\Command\TokenGenerationCommand;
 use App\Listener\ExceptionListener;
 use App\Resolver\CustomerResolver;
 use App\Resolver\ParameterResolver;
@@ -15,14 +17,11 @@ return function (ContainerConfigurator $configurator) {
         ->autoconfigure() // Automatically registers your services as commands, event subscribers, etc.
     ;
 
-    $services->load('App\\Command\\', '../src/Command/*');
-
     $services->load('App\\Repository\\', '../src/Repository/*');
     $services->load('App\\Serializer\\', '../src/Serializer/*');
     $services->load('App\\Service\\', '../src/Service/*');
 
-    $services->load('App\\Controller\\', '../src/Controller/')
-        ->tag('controller.service_arguments');
+    $services->load('App\\Controller\\', '../src/Controller/')->tag('controller.service_arguments');
 
     $services->set(PdoManager::class)
         ->args([
@@ -45,4 +44,8 @@ return function (ContainerConfigurator $configurator) {
 
     $services->set(ParameterResolver::class)
         ->tag('controller.argument_value_resolver', ['priority' => 50]);
+
+    $services->set(MigrationsCommand::class)->tag('console.command');
+
+    $services->set(TokenGenerationCommand::class)->tag('console.command');
 };

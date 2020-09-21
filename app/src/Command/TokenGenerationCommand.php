@@ -22,7 +22,7 @@ class TokenGenerationCommand extends Command
         parent::__construct();
     }
 
-    protected function configure()
+    protected function configure(): void
     {
         $this->setDescription('Generate JWT customer token');
         $this->setHelp('This command generates a JWT customer token');
@@ -31,11 +31,11 @@ class TokenGenerationCommand extends Command
         $this->addArgument('email', InputArgument::REQUIRED, 'Customer Email');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $customer = new Customer();
         $customer->id = (int) $input->getArgument('customerid');
-        $customer->email = $input->getArgument('email');
+        $customer->email = (string) $input->getArgument('email');
 
         $token = $this->jwtManager->getToken($customer);
 
