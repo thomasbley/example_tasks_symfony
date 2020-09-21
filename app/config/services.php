@@ -15,9 +15,11 @@ return function (ContainerConfigurator $configurator) {
         ->autoconfigure() // Automatically registers your services as commands, event subscribers, etc.
     ;
 
-    $services->load('App\\Service\\', '../src/Service/*');
+    $services->load('App\\Command\\', '../src/Command/*');
+
     $services->load('App\\Repository\\', '../src/Repository/*');
     $services->load('App\\Serializer\\', '../src/Serializer/*');
+    $services->load('App\\Service\\', '../src/Service/*');
 
     $services->load('App\\Controller\\', '../src/Controller/')
         ->tag('controller.service_arguments');

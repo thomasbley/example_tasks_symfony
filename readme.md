@@ -14,11 +14,11 @@ on completion.
     docker-compose up
     docker-compose up -d
 
-    # setup database TODO
-    docker-compose -f docker-compose.yml -f docker-compose-tools.yml run -u $(id -u) --rm shell update_database.php
+    # setup database
+    docker-compose -f docker-compose.yml -f docker-compose-tools.yml run -u $(id -u) --rm console app:migrate-database
 
-    # generate bearer token for customer id "42" with email "foo.bar@example.com" TODO
-    docker-compose -f docker-compose.yml -f docker-compose-tools.yml run -u $(id -u) --rm shell generate_token.php \
+    # generate bearer token for customer id "42" with email "foo.bar@example.com"
+    docker-compose -f docker-compose.yml -f docker-compose-tools.yml run -u $(id -u) --rm console app:generate-token \
         42 foo.bar@example.com
 
     # access/error logs
@@ -80,9 +80,9 @@ on completion.
     http://127.0.0.1:8080/coverage/ (code coverage)
     http://127.0.0.1:8025/ (MailHog, catches all outgoing emails)
 
-#### Command line tests TODO
+#### Command line tests
 
-    docker-compose -f docker-compose.yml -f docker-compose-tools.yml run -u $(id -u) --rm shell generate_token.php \
+    docker-compose -f docker-compose.yml -f docker-compose-tools.yml run -u $(id -u) --rm console app:generate-token \
         42 foo.bar@example.com
 
     export TOKEN=...
