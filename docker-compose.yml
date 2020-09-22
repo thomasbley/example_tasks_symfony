@@ -39,13 +39,6 @@ services:
     networks:
       - backend
     restart: unless-stopped
-  memcache:
-    image: memcached:alpine
-    cap_drop: [all]
-    command: '-m 128 -v'
-    networks:
-      - backend
-    restart: unless-stopped
   mailhog:
     image: mailhog/mailhog
     cap_drop: [all]
