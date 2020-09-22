@@ -2,6 +2,7 @@
 
 namespace Symfony\Component\DependencyInjection\Loader\Configurator;
 
+use App\Command\FpmStatusCommand;
 use App\Command\MigrationsCommand;
 use App\Command\TokenGenerationCommand;
 use App\Listener\ExceptionListener;
@@ -9,7 +10,6 @@ use App\Resolver\CustomerResolver;
 use App\Resolver\ParameterResolver;
 use App\Service\JwtManager;
 use App\Service\PdoManager;
-use App\Command\FpmStatusCommand;
 
 return function (ContainerConfigurator $configurator) {
     $services = $configurator->services()
