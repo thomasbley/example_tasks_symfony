@@ -1,4 +1,4 @@
-PHP / Symfony example Tasks REST API
+PHP / Symfony5 example Tasks REST API
 ---------------------------------------
 
 [![Actions Build Status](https://github.com/thomasbley/example_tasks_symfony/workflows/build/badge.svg?branch=master)](https://github.com/thomasbley/example_tasks_symfony/actions)
@@ -12,7 +12,6 @@ on completion.
 
     # setup composer
     mkdir -m 0777 app/vendor
-    docker-compose -f docker-compose.yml -f docker-compose-tools.yml run -u $(id -u) --rm composer validate
     docker-compose -f docker-compose.yml -f docker-compose-tools.yml run -u $(id -u) --rm composer
 
     # start containers
@@ -40,9 +39,9 @@ on completion.
     docker-compose -f docker-compose.yml -f docker-compose-tools.yml run -u $(id -u) --rm console debug:autowiring -all
 
     # start symfony cli
-    docker-compose -f docker-compose.yml -f docker-compose-tools.yml run --rm cli
+    docker-compose -f docker-compose.yml -f docker-compose-tools.yml run -u $(id -u) --rm cli
     docker-compose -f docker-compose.yml -f docker-compose-tools.yml run --rm cli check:requirements
-    docker-compose -f docker-compose.yml -f docker-compose-tools.yml run --rm cli check:security
+    docker-compose -f docker-compose.yml -f docker-compose-tools.yml run -u $(id -u) --rm cli check:security
 
     # start mysql client
     docker-compose exec mysql mysql -u root -proot tasks

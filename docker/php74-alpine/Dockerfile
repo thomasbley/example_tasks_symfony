@@ -4,7 +4,7 @@ RUN echo "@testing http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/ap
     && echo "http://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories \
     && apk --no-cache add php7 php7-fpm php7-curl php7-pdo_mysql php7-json php7-mbstring php7-opcache \
         php7-phar php7-tokenizer php7-dom php7-simplexml php7-ctype php7-iconv php7-intl php7-posix php7-xml \
-        php7-pecl-pcov@testing \
+        php7-session php7-pecl-pcov@testing \
     && rm /etc/php7/conf.d/pcov.ini
 
 RUN addgroup -g 82 -S www-data \
