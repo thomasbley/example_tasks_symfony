@@ -59,14 +59,13 @@ on completion.
     docker-compose -f docker-compose.yml -f docker-compose-tools.yml run -u $(id -u) --rm phpcsfixer
     docker-compose -f docker-compose.yml -f docker-compose-tools.yml run -u $(id -u) --rm phploc
 
-#### Tests TODO
+#### Tests
 
     docker-compose -f docker-compose.yml -f docker-compose-tools.yml run -u $(id -u) --rm phpunit
 
-#### Monitoring TODO
+#### Monitoring
 
-    docker-compose -f docker-compose.yml -f docker-compose-tools.yml run -u $(id -u) --rm fpm_status
-    docker-compose -f docker-compose.yml -f docker-compose-tools.yml run -u $(id -u) --rm memcache_status
+    docker-compose -f docker-compose.yml -f docker-compose-tools.yml run -u $(id -u) --rm console app:fpm-status
 
 #### Convert docs/api.md to docs/swaggerui/swagger.json TODO
 

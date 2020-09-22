@@ -9,6 +9,7 @@ use App\Resolver\CustomerResolver;
 use App\Resolver\ParameterResolver;
 use App\Service\JwtManager;
 use App\Service\PdoManager;
+use App\Command\FpmStatusCommand;
 
 return function (ContainerConfigurator $configurator) {
     $services = $configurator->services()
@@ -46,6 +47,6 @@ return function (ContainerConfigurator $configurator) {
         ->tag('controller.argument_value_resolver', ['priority' => 50]);
 
     $services->set(MigrationsCommand::class)->tag('console.command');
-
     $services->set(TokenGenerationCommand::class)->tag('console.command');
+    $services->set(FpmStatusCommand::class)->tag('console.command');
 };
