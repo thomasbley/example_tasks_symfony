@@ -1,6 +1,7 @@
 {
-    "type": "project",
-    "license": "proprietary",
+    "name": "thomasbley/example_tasks_symfony",
+    "description": "PHP / Symfony example Tasks REST API",
+    "license": "MIT",
     "require": {
         "php": ">=7.4.0",
         "ext-ctype": "*",

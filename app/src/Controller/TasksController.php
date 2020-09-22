@@ -40,24 +40,10 @@ class TasksController extends AbstractController
     public function getTasks(Customer $customer, string $completed): JsonResponse
     {
         if (!empty($completed)) {
-            return $this->getCompletedTasks($customer);
+            $tasks = $this->repo->getCompletedTasks($customer);
+        } else {
+            $tasks = $this->repo->getCurrentTasks($customer);
         }
-
-        return $this->getCurrentTasks($customer);
-    }
-
-    public function getCurrentTasks(Customer $customer): JsonResponse
-    {
-        $tasks = $this->repo->getCurrentTasks($customer);
-
-        $data = $this->serializer->serializeTasks($tasks);
-
-        return $this->json($data, Response::HTTP_OK);
-    }
-
-    public function getCompletedTasks(Customer $customer): JsonResponse
-    {
-        $tasks = $this->repo->getCompletedTasks($customer);
 
         $data = $this->serializer->serializeTasks($tasks);
 

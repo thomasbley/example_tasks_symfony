@@ -12,6 +12,7 @@ on completion.
 
     # setup composer
     mkdir -m 0777 app/vendor
+    docker-compose -f docker-compose.yml -f docker-compose-tools.yml run -u $(id -u) --rm composer validate
     docker-compose -f docker-compose.yml -f docker-compose-tools.yml run -u $(id -u) --rm composer
 
     # start containers
