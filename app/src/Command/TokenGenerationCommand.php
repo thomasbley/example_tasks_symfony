@@ -33,9 +33,11 @@ class TokenGenerationCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
+        $arguments = $input->getArguments();
+
         $customer = new Customer();
-        $customer->id = (int) $input->getArgument('customerid');
-        $customer->email = (string) $input->getArgument('email');
+        $customer->id = (int) ($arguments['customerid'] ?? 0);
+        $customer->email = (string) ($arguments['email'] ?? '');
 
         $token = $this->jwtManager->getToken($customer);
 

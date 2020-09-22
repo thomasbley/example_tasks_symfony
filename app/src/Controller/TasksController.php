@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Model\Customer;
+use App\Model\Task;
 use App\Repository\TasksRepository;
 use App\Serializer\TasksSerializer;
 use DateTime;
@@ -10,7 +11,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\HttpException;
-use App\Model\Task;
 
 class TasksController extends AbstractController
 {
