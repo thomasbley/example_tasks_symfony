@@ -6,11 +6,13 @@ use App\Model\Customer;
 use App\Model\Task;
 use App\Repository\TasksRepository;
 use App\Serializer\TasksSerializer;
+use App\View\TaskCompletedEmail;
 use DateTime;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\HttpException;
+use Symfony\Component\Mailer\MailerInterface;
 
 class TasksController extends AbstractController
 {
@@ -18,10 +20,13 @@ class TasksController extends AbstractController
 
     protected TasksSerializer $serializer;
 
-    public function __construct(TasksRepository $repo, TasksSerializer $serializer)
+    protected MailerInterface $mailer;
+
+    public function __construct(TasksRepository $repo, TasksSerializer $serializer, MailerInterface $mailer)
     {
         $this->repo = $repo;
         $this->serializer = $serializer;
+        $this->mailer = $mailer;
     }
 
     public function getTask(Customer $customer, int $taskId): JsonResponse
@@ -90,7 +95,13 @@ class TasksController extends AbstractController
 
         $this->repo->updateTask($task);
 
-        // TODO implement update notification
+        if ($task->completed) {
+            $email = new TaskCompletedEmail();
+            $email->customer = $customer;
+            $email->task = $task;
+
+            $this->mailer->send($email->getEmail());
+        }
 
         $data = $this->serializer->serializeTask($task);
 

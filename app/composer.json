@@ -48,6 +48,7 @@
         "symfony/polyfill-mbstring": "*",
         "symfony/polyfill-intl-grapheme": "*",
         "symfony/polyfill-intl-normalizer": "*",
+        "symfony/polyfill-intl-idn": "*",
         "symfony/polyfill-php73": "*",
         "symfony/polyfill-php72": "*",
         "symfony/polyfill-php71": "*",
