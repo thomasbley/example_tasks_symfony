@@ -120,9 +120,6 @@
     "symfony/mime": {
         "version": "v5.1.6"
     },
-    "symfony/polyfill-intl-idn": {
-        "version": "v1.18.1"
-    },
     "symfony/polyfill-php80": {
         "version": "v1.18.1"
     },
