@@ -67,6 +67,11 @@
                     "content": {
                         "application/json": {
                             "schema": {
+                                "required": [
+                                    "title",
+                                    "duedate",
+                                    "completed"
+                                ],
                                 "properties": {
                                     "title": {
                                         "type": "string",
@@ -191,6 +196,10 @@
                     "content": {
                         "application/json": {
                             "schema": {
+                                "required": [
+                                    "title",
+                                    "duedate"
+                                ],
                                 "properties": {
                                     "title": {
                                         "type": "string",

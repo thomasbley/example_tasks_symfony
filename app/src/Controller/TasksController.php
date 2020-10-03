@@ -113,6 +113,7 @@ class TasksController extends AbstractController
      *         @OA\JsonContent(
      *             @OA\Property(property="title", type="string", example="My Task"),
      *             @OA\Property(property="duedate", type="string", format="date", example="2020-01-01"),
+     *             required={"title", "duedate"}
      *         )
      *     ),
      *     @OA\Response(
@@ -160,7 +161,8 @@ class TasksController extends AbstractController
      *         @OA\JsonContent(
      *             @OA\Property(property="title", type="string", example="My Task"),
      *             @OA\Property(property="duedate", type="string", format="date", example="2020-01-01"),
-     *             @OA\Property(property="completed", type="boolean", example=true)
+     *             @OA\Property(property="completed", type="boolean", example=true),
+     *             required={"title", "duedate", "completed"}
      *         )
      *     ),
      *     @OA\Response(
