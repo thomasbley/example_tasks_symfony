@@ -110,13 +110,13 @@ services:
     volumes:
       - ./:/var/www
       - ./bin:/usr/local/sbin
-  apib2swagger:
-    image: kminami/apib2swagger
+  php2openapi:
+    image: example_tasks_php
     cap_drop: [all]
-    working_dir: /docs
-    command: -i api.md --prefer-reference --bearer-apikey -o swaggerui/swagger.json
+    working_dir: /var/www
+    command: ./app/vendor/bin/openapi --output docs/swaggerui/api_spec.json --exclude vendor ./app/src
     volumes:
-      - ./docs:/docs
+      - ./:/var/www
 
 networks:
   backend:

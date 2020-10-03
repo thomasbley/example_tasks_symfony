@@ -71,9 +71,9 @@ on completion.
 
     docker-compose -f docker-compose.yml -f docker-compose-tools.yml run -u $(id -u) --rm console app:fpm-status
 
-#### Convert docs/api.md to docs/swaggerui/swagger.json TODO
+#### Create openapi documentation in docs/swaggerui/api_spec.json
 
-    docker-compose -f docker-compose.yml -f docker-compose-tools.yml run -u $(id -u) --rm apib2swagger
+    docker-compose -f docker-compose.yml -f docker-compose-tools.yml run -u $(id -u) --rm php2openapi
 
 #### URLs TODO
 
