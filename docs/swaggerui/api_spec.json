@@ -103,6 +103,9 @@
                     },
                     "401": {
                         "description": "unauthorized"
+                    },
+                    "404": {
+                        "description": "task not found"
                     }
                 },
                 "security": [
@@ -235,23 +238,23 @@
             "Task": {
                 "properties": {
                     "id": {
-                        "description": "Task ID",
+                        "description": "ID",
                         "type": "integer",
-                        "example": 43
+                        "example": 42
                     },
                     "title": {
-                        "description": "Task title",
+                        "description": "Title",
                         "type": "string",
                         "example": "My Task"
                     },
                     "duedate": {
-                        "description": "Task due date",
+                        "description": "Due date",
                         "type": "string",
                         "format": "date",
                         "example": "2020-01-01"
                     },
                     "completed": {
-                        "description": "Task completed",
+                        "description": "Completed",
                         "type": "boolean",
                         "example": false
                     }

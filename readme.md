@@ -75,7 +75,7 @@ on completion.
 
     docker-compose -f docker-compose.yml -f docker-compose-tools.yml run -u $(id -u) --rm php2openapi
 
-#### URLs TODO
+#### URLs
 
     http://127.0.0.1:8080/v1/tasks (API endpoint)
 
