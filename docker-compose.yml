@@ -3,7 +3,7 @@ version: "2"
 services:
   php:
     build: ./docker/php74-alpine
-    image: example_tasks_php
+    image: example_tasks_symfony
     cap_drop: [all]
     cap_add: [chown, setgid, setuid, kill]
     volumes:
