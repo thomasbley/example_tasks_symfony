@@ -3,8 +3,6 @@ PHP / Symfony5 example Tasks REST API
 
 [![Actions Build Status](https://github.com/thomasbley/example_tasks_symfony/workflows/build/badge.svg?branch=master)](https://github.com/thomasbley/example_tasks_symfony/actions)
 
-[![Travis Build Status](https://travis-ci.com/thomasbley/example_tasks_symfony.svg?branch=master)](https://travis-ci.com/thomasbley/example_tasks_symfony)
-
 As a registered user, I want to see a list of open tasks for my day, so that I can do them one by one and get notified
 on completion.
 
